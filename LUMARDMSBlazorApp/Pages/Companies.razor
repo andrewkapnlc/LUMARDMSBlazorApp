@@ -1,0 +1,111 @@
+﻿@*<h3>Companies</h3>
+@using LUMARDMSBlazorApp.Data
+@inject ICRMCompanyService crmCS;
+
+@code {
+    private List<CRMCompany> crmCompany;
+
+    protected override void OnInitialized()
+    {
+        crmCompany = new crmCS.GetCRMCompanies();
+        
+    }
+
+   
+
+}*@
+
+
+
+
+@page "/companies"
+
+@using LUMARDMSBlazorApp.Data
+@inject CRMCompanyService crmCS
+@inject NavigationManager Navigator
+
+<h1>CRM Companies</h1>
+
+<p>This page shows a list of Companies availble in the SAGE CRM</p>
+
+@if (companies == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <nav class="navbar navbar-light bg-light">
+      <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </nav>
+
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>                         
+                    <!-- th>Name</ -->
+                    <GridColumn ColumnTitle="Name" OnSearchTextChanged="OnCompanySearchTextChanged"></GridColumn>
+                    <GridColumn ColumnTitle="Type" OnSearchTextChanged="OnCompanySearchTextChanged"></GridColumn>
+                    <GridColumn ColumnTitle="Status" OnSearchTextChanged="OnCompanySearchTextChanged"></GridColumn>
+                    <GridColumn ColumnTitle="ID Cust" OnSearchTextChanged="OnCompanySearchTextChanged"></GridColumn>
+                   
+                    <GridColumn ColumnTitle="Business Type" OnSearchTextChanged="OnCompanySearchTextChanged"></GridColumn>
+                    <GridColumn ColumnTitle="ABN" OnSearchTextChanged="OnCompanySearchTextChanged"></GridColumn>
+                    <GridColumn ColumnTitle="ACN" OnSearchTextChanged="OnCompanySearchTextChanged"></GridColumn>
+                    <GridColumn ColumnTitle="ICN" OnSearchTextChanged="OnCompanySearchTextChanged"></GridColumn>
+                    <GridColumn ColumnTitle="ROYDAT ID" OnSearchTextChanged="OnCompanySearchTextChanged"></GridColumn>
+            
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var cRMCompany in companies)
+                {
+                <tr>                
+                    <td>@cRMCompany.Comp_Name</td>
+                    <td>@cRMCompany.Comp_Type</td>
+                    <td>@cRMCompany.Comp_Status</td>                
+                    <td>@cRMCompany.Comp_FinCustId</td>
+                                
+                    <td>@cRMCompany.comp_business_type</td>
+                    <td>@cRMCompany.comp_abn</td>
+                    <td>@cRMCompany.comp_acn</td>
+                    <td>@cRMCompany.comp_icn</td>            
+                    <td>@cRMCompany.Comp_RoyCustId</td>
+                    <td>
+                        <button class="btn btn-danger"> Delete</button>
+                        <button class="btn btn-info"> Edit</button>
+                        </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div>
+        <button class="btn btn-success" onclick="UpdateRecord()"> Create New Record </button>
+    </div>
+}
+
+@code {
+    private List<LUMARDMSBlazorApp.Data.CRMCompany> companies;
+    private List<CRMCompany> filteredCompanyList { get; set; }
+
+    protected override void OnInitialized()
+    {
+        companies =  crmCS.GetCRMCompanies();// .GetForecastAsync(DateTime.Now);
+    }
+
+    protected void UpdateRecord()
+    {
+        Navigator.NavigateTo("/createcompanies");
+    }
+
+    private void OnCompanySearchTextChanged(ChangeEventArgs args)
+   {
+        string searchText = args.Value.ToString();
+
+        filteredCompanyList = companies.Where(cRMCompany => cRMCompany.Comp_Name.Contains(searchText)).ToList();
+    }
+}

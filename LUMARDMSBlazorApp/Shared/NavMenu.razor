@@ -1,0 +1,90 @@
+﻿<div class="top-row pl-4 navbar navbar-dark">
+    <!--a class="navbar-brand" href="">LUMAR DMSB</-->
+    <a class="navbar-brand">
+            <img src="images/dms.png" class="oi-justify-center">
+        </a>
+    <button class="navbar-toggler" @onclick="ToggleNavMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</div>
+
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+
+<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
+    <ul class="nav flex-column">
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="oi oi-home" aria-hidden="true"></span> Home
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="companies">
+                <span class="oi oi-basket" aria-hidden="true"></span> Companies
+            </NavLink>
+        </li>
+         <li class="nav-item px-3">
+            <NavLink class="nav-link" href="contracts">
+                <span class="oi oi-dollar" aria-hidden="true"></span> Contracts
+            </NavLink>
+        </li>
+         <li class="nav-item px-3">
+            <NavLink class="nav-link" href="locations">
+                <span class="oi oi-list-rich" aria-hidden="true"></span> Locations
+            </NavLink>
+        </li>
+         <li class="nav-item px-3">
+            <NavLink class="nav-link" href="" @onclick="()=>expandSubMenu= !expandSubMenu">
+                <span class="oi oi-file" aria-hidden="true"></span>Data Management
+            </NavLink>
+
+             @if(expandSubMenu)
+            {
+                <ul class="nav flex-column">     
+                    <li class="nav-item px-3">
+                    <NavLink class="nav-link" href="locations">
+                        <span class="oi oi-location" aria-hidden="true"></span> Enter a Location
+                    </NavLink>
+                    </li>
+                     <li class="nav-item px-3">
+                        <NavLink class="nav-link" href="updatecompanies">
+                            <span class="oi oi-laptop" aria-hidden="true"></span>Link ALTAR
+                        </NavLink>
+                    </li>
+                </ul>
+            }
+        </li>
+
+
+       
+
+
+
+
+        @*<li class="nav-item px-3">
+            <NavLink class="nav-link" href="counter">
+                <span class="oi oi-plus" aria-hidden="true"></span> Update Counter
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="fetchdata">
+                <span class="oi oi-list-rich" aria-hidden="true"></span> User data
+            </NavLink>
+        </li>
+*@
+   </ul>>
+</div>
+
+@code {
+    private bool collapseNavMenu = true;
+    private bool expandSubMenu;
+
+    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+}

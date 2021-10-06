@@ -1,0 +1,197 @@
+﻿@page "/updatecompanies"
+
+<h3>UpdateCompany</h3>
+
+
+<form>
+<div class="form-group row">
+    <div class="col-xl-4">
+        <label for="CompanyName">Company Name</label>
+        <input type="text" class="form-control" id="CompanyName" placeholder="Company Name">
+    </div>    
+    <div class="col-xl-4">
+        <label for="CompanyType">Type</label>
+        <select class="form-control" id="CompanyType">
+          <option>Company</option>
+          <option>Individual</option>
+          <option>Aboriginal Land Trust</option>         
+        </select>
+    </div>
+      <div class="col-xl-4">
+        <label for="Status">Status</label>
+        <select class="form-control" id="Status">
+          <option>Active</option>
+          <option>Inactive</option>         
+        </select>
+    </div>
+    </div>
+
+
+
+    <div class="form-group row g-3">
+          
+          <div class="col-auto">
+                <!--label for="inputPassword2" class="visually-hidden">Password</-->
+                <input type="password" class="form-control" id="inputPassword2" placeholder="Enter ABN">
+          </div>
+          <div class="col-auto">
+                <button type="submit" class="btn btn-primary mb-3">Validate ABN</button>
+          
+          </div>
+           
+          <div class="col-auto">
+                <!--label for="inputPassword2" class="visually-hidden">Password</-->
+                <input type="password" class="form-control" id="inputPassword2" placeholder="Enter ABN">
+          </div>
+          <div class="col-auto">
+                <button type="submit" class="btn btn-primary mb-3">Validate ABN</button>
+          
+          </div>
+          
+          <div class="col-auto">
+                <!--label for="inputPassword2" class="visually-hidden">Password</-->
+                <input type="password" class="form-control" id="inputPassword2" placeholder="Enter ABN">
+          </div>
+          <div class="col-auto">
+                <button type="submit" class="btn btn-primary mb-3">Validate ABN</button>
+          
+          </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-xl-4">
+            <div >
+                <label for="ABN">Company Name</label>
+                <input type="text" class="form-control" id="ABN" placeholder="Enter ABN">
+            </div>
+            <div  >
+                 <button type="submit" class="btn btn-primary mb-2">Vaidate ABN</button>
+            </div>
+    </div>    
+    <div class="col-xl-4">
+        <label for="ACN">ACN</label>
+        <input type="text" class="form-control" id="ACN" placeholder="Enter ACN">
+      
+        <button type="submit" class="btn btn-primary mb-2">Vaidate ACN</button>
+    </div>
+        <div class="col-xl-4">
+            <label for="ICN">ICN</label>
+            <input type="text" class="form-control" id="ICN" placeholder="Enter ICN">
+        </div>
+
+  </div>
+
+  
+  <div class="form-group row">
+      <div class="col-xl-4">
+            <label for="RoyaltyCompany">RTA Company Name</label>
+                <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>                         
+                            <!-- th>Name</ -->
+                            <th>Company ID</th>
+                            <th>Company Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>               
+                        <tr>                
+                            <td>AA23685</td>
+                            <td>A & A Co.</td>                         
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+      </div>     
+         <div class="col-md-3">
+            <label for="RoyaltyCompany">NLC Company Name</label>
+                <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>                         
+                            <!-- th>Name</ -->
+                            <th>Company ID</th>
+                            <th>Company Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>               
+                        <tr>                
+                            <td>AA23685</td>
+                            <td>A & A Company Ltd</td>                         
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+      </div>    
+       <div class="col-xl-4">
+            <label for="SnSCompany">Mining Company Name</label>
+                <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>                         
+                            <!-- th>Name</ -->
+                            <th>Company ID</th>
+                            <th>Company Name</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>               
+                        <tr>                
+                            <td>XXXX</td>
+                            <td>A & A Co.</td> 
+                            <td class="text-danger">Possible Match</td> 
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+
+             
+               </div>
+       
+        <button type="submit" class="btn btn-primary mb-2">Update</button>
+  </div>
+
+
+
+@*<div class="form-group">
+    <label for="exampleFormControlInput1">Email address</label>
+    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Example select</label>
+    <select class="form-control" id="exampleFormControlSelect1">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect2">Example multiple select</label>
+    <select multiple class="form-control" id="exampleFormControlSelect2">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Update Comment</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+   <div class="form-group mb-2">
+    <label for="staticEmail2" class="sr-only">Email</label>
+    <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="email@example.com">
+  </div>
+  <div class="form-group mb-2">
+    <label for="abnValidator" class="sr-only">ABN</label>
+    <input type="number" class="form-control" id="abnValidator" placeholder="Enter ABN">
+  </div>
+  <button type="submit" class="btn btn-primary mb-2">Vaidate ABN</button>*@
+</form>
+
+@code {
+
+}
